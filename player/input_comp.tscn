@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crjoahdv0w14b"]
+
+[ext_resource type="Script" uid="uid://dnstf8o7rbbhx" path="res://player/input_comp.gd" id="1_q0nm7"]
+
+[node name="InputComp" type="Node"]
+script = ExtResource("1_q0nm7")

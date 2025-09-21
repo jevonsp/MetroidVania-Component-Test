@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvkmptsbvdxwl"]
+
+[ext_resource type="Script" uid="uid://dxsqfytmgl4ge" path="res://player/dash_comp.gd" id="1_216wy"]
+
+[node name="DashComp" type="Node" node_paths=PackedStringArray("dash_cooldown")]
+script = ExtResource("1_216wy")
+dash_cooldown = NodePath("DashCooldown")
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
