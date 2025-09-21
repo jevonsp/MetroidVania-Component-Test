@@ -1,0 +1,8 @@
+# Godot import folder
+.import/
+
+# Godot temporary files
+*.tmp
+
+# Godot export folders
+export/
