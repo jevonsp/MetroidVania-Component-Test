@@ -8,6 +8,7 @@ class_name DashComponent extends Node
 @export_subgroup("Nodes")
 @export var dash_cooldown: Timer
 
+var player: Player
 var input_comp: InputComponent
 var move_comp: MoveComponent
 
@@ -17,8 +18,12 @@ var dash_direction: Vector2 = Vector2.ZERO
 var air_dashes_done: int = 0
 
 func _ready() -> void:
-	input_comp = get_parent().get_node("InputComp")
-	move_comp = get_parent().get_node("MoveComp")
+	player = get_parent()
+	input_comp = player.get_node("InputComp")
+	
+	for ability in player.abilities:
+		if ability is MoveComponent:
+			move_comp = ability
 
 func tick(body: CharacterBody2D, delta) -> void:
 	handle_input(body)
@@ -38,7 +43,6 @@ func start_dash(body: CharacterBody2D) -> void:
 	is_dashing = true
 	dash_time_left = dash_duration
 	
-	var player = get_parent() as Player
 	var horizontal_input = sign(input_comp.input_horizontal)
 	if horizontal_input == 0:
 		horizontal_input = player.get_facing_dir()

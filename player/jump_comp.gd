@@ -2,19 +2,22 @@ class_name JumpComponent extends Node
 
 @export_subgroup("Settings")
 @export var jump_velocity: float = -450.0
+@export var running_jump_bonus: float = -100
 
 @export_subgroup("Nodes")
 @export var jump_buffer_timer: Timer
 @export var coyote_timer: Timer
 
 var input_comp: InputComponent
+var player: Player
 
 var is_going_up: bool = false
 var is_jumping: bool = false
 var last_frame_on_floor: bool = false
 
 func _ready() -> void:
-	input_comp = get_parent().get_node("InputComp")
+	player = get_parent()
+	input_comp = player.get_node("InputComp")
 
 func tick(body: CharacterBody2D, _delta: float) -> void:
 	var want_to_jump = input_comp.jump_pressed or \
@@ -72,7 +75,10 @@ func handle_coyote_time(body: CharacterBody2D) -> void:
 		body.velocity.y = 0
 
 func jump(body: CharacterBody2D) -> void:
-	body.velocity.y = jump_velocity
+	var true_jump_velocity: float = jump_velocity
+	if player.running_at_full == true:
+		true_jump_velocity += running_jump_bonus
+	body.velocity.y = true_jump_velocity
 	jump_buffer_timer.stop()
 	is_jumping = true
 	coyote_timer.stop()

@@ -1,5 +1,5 @@
-Timer
 Node
+Timer
 Pickup
 CollisionShape2D
 CollisionPolygon2D

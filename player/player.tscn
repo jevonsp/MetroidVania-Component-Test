@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cruv8x2rdrv6a"]
+[gd_scene load_steps=6 format=3 uid="uid://cruv8x2rdrv6a"]
 
 [ext_resource type="Script" uid="uid://bpvcsg3anknip" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://crjoahdv0w14b" path="res://player/input_comp.tscn" id="2_rkbax"]
-[ext_resource type="PackedScene" uid="uid://xu5h8bq2ttnh" path="res://player/move_comp.tscn" id="3_yw30f"]
 [ext_resource type="PackedScene" uid="uid://c73ankn3gphvt" path="res://player/gravity_comp.tscn" id="4_qjkh3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw30f"]
@@ -11,19 +10,15 @@ size = Vector2(17, 16)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjkh3"]
 radius = 9.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_component", "input_component", "move_component", "jump_component")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_comp", "input_comp")]
 script = ExtResource("1_4flbx")
-gravity_component = NodePath("GravityComp")
-input_component = NodePath("InputComp")
-move_component = NodePath("MoveComp")
-jump_component = NodePath("")
+gravity_comp = NodePath("GravityComp")
+input_comp = NodePath("InputComp")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="InputComp" parent="." instance=ExtResource("2_rkbax")]
-
-[node name="MoveComp" parent="." instance=ExtResource("3_yw30f")]
 
 [node name="GravityComp" parent="." instance=ExtResource("4_qjkh3")]
 

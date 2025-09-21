@@ -20,3 +20,5 @@ res://player/dash_comp.tscn
 res://player/double_jump_comp.gd
 res://player/dash_comp.gd
 res://test/test.tscn
+res://player/run_comp.tscn
+res://player/run_comp.gd
