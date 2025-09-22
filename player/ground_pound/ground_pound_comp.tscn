@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsy2belud1fen"]
+
+[ext_resource type="Script" uid="uid://cl5budgqyiffg" path="res://player/ground_pound/ground_pound_comp.gd" id="1_vde4k"]
+
+[node name="GroundPoundComp" type="Node"]
+script = ExtResource("1_vde4k")

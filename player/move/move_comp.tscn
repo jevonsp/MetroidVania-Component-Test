@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://xu5h8bq2ttnh"]
 
-[ext_resource type="Script" uid="uid://jvealal5hw17" path="res://player/move_comp.gd" id="1_chh4b"]
+[ext_resource type="Script" uid="uid://jvealal5hw17" path="res://player/move/move_comp.gd" id="1_chh4b"]
 
 [node name="MoveComp" type="Node"]
 script = ExtResource("1_chh4b")

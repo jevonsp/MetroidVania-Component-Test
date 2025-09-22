@@ -1,5 +1,6 @@
 class_name DashComponent extends Node
 
+@export var ability_name: String = "dash"
 @export_subgroup("Settings")
 @export var dash_speed: float = 400
 @export var dash_duration: float = 0.3
@@ -29,6 +30,9 @@ func tick(body: CharacterBody2D, delta) -> void:
 	handle_input(body)
 	handle_dash(body, delta)
 	reset_air_dashes(body)
+		
+func get_ability_name() -> String:
+	return ability_name
 		
 func handle_input(body: CharacterBody2D) -> void:
 	if not dash_cooldown.is_stopped():

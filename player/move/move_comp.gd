@@ -1,9 +1,11 @@
 class_name MoveComponent extends Node
 
+@export var ability_name: String = "move"
 @export_subgroup("Settings")
 @export var speed: float = 200
 @export var ground_accel_speed: float = 6.0
 @export var ground_decel_speed:float = 8.0
+@export var ground_turning_speed: float = 20.0
 @export var air_accel_speed: float = 10.0
 @export var air_decel_speed: float = 3.0
 
@@ -23,5 +25,11 @@ func tick(body: CharacterBody2D, _delta: float) -> void:
 		velocity_change_speed = ground_accel_speed if direction != 0 else ground_decel_speed
 	else:
 		velocity_change_speed = air_accel_speed if direction != 0 else air_decel_speed
-
+	
+	if body.is_on_floor():
+		if sign(body.velocity.x) != sign(input_comp.input_horizontal):
+			print("turning")
+			velocity_change_speed = ground_turning_speed
+	
 	body.velocity.x = move_toward(body.velocity.x, direction * speed, velocity_change_speed)
+	print(body.velocity.x)

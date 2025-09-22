@@ -1,10 +1,9 @@
-class_name DoubleJumpCompontent extends Node
+class_name JumpComponent extends Node
 
+@export var ability_name: String = "jump"
 @export_subgroup("Settings")
 @export var jump_velocity: float = -450.0
 @export var running_jump_bonus: float = -100
-@export var extra_jump_velocity: float = -400.0
-@export var max_jumps: int = 2
 
 @export_subgroup("Nodes")
 @export var jump_buffer_timer: Timer
@@ -17,18 +16,10 @@ var is_going_up: bool = false
 var is_jumping: bool = false
 var last_frame_on_floor: bool = false
 
-enum JumpState {FLOOR, JUMP, FALL, LAND}
-var state: JumpState = JumpState.FLOOR
-
-var jumps_done: int = 0
-
 func _ready() -> void:
 	player = get_parent()
-	input_comp = player.input_comp
-	for ability in player.abilities:
-		if ability is JumpComponent:
-			player._remove_ability(ability)
-	
+	input_comp = player.get_node("InputComp")
+
 func tick(body: CharacterBody2D, _delta: float) -> void:
 	var want_to_jump = input_comp.jump_pressed or \
 	(not jump_buffer_timer.is_stopped() and body.is_on_floor())
@@ -37,17 +28,10 @@ func tick(body: CharacterBody2D, _delta: float) -> void:
 	handle_jump(body, want_to_jump, jump_released)
 
 func has_just_landed(body: CharacterBody2D) -> bool:
-	var landed = body.is_on_floor() and jumps_done > 0
-	if landed:
-		jumps_done = 0
-	return landed
+	return body.is_on_floor() and not last_frame_on_floor and is_jumping
 
 func is_allowed_to_jump(body: CharacterBody2D, want_to_jump: bool) -> bool:
-	if not want_to_jump:
-		return false
-	if body.is_on_floor() or not coyote_timer.is_stopped():
-		return true
-	return jumps_done < max_jumps
+	return want_to_jump and (body.is_on_floor() or not coyote_timer.is_stopped())
 
 func handle_jump(body: CharacterBody2D, want_to_jump: bool, jump_released: bool) -> void:
 	if has_just_landed(body):
@@ -92,21 +76,10 @@ func handle_coyote_time(body: CharacterBody2D) -> void:
 		body.velocity.y = 0
 
 func jump(body: CharacterBody2D) -> void:
-	var base_velocity: float
-	var true_jump_velocity: float
-	
-	if body.is_on_floor():
-		base_velocity = jump_velocity
-	else:
-		base_velocity = extra_jump_velocity
-	
+	var true_jump_velocity: float = jump_velocity
 	if player.running_at_full == true:
-		true_jump_velocity = base_velocity + running_jump_bonus
-	else:
-		true_jump_velocity = base_velocity
-	
+		true_jump_velocity += running_jump_bonus
 	body.velocity.y = true_jump_velocity
-	jumps_done += 1
 	jump_buffer_timer.stop()
 	is_jumping = true
 	coyote_timer.stop()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hqjhuuwjm7gd"]
 
-[ext_resource type="Script" uid="uid://dxp1buoy35jf2" path="res://player/run_comp.gd" id="1_ioqma"]
+[ext_resource type="Script" uid="uid://dxp1buoy35jf2" path="res://player/run/run_comp.gd" id="1_ioqma"]
 
 [node name="RunComp" type="Node"]
 script = ExtResource("1_ioqma")

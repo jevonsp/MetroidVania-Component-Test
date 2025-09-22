@@ -23,4 +23,9 @@ func load_game():
 		print("failed to load file")
 		return
 	print("loading file")
+	
 	get_tree().call_group("can_save", "on_load_game", saved_game.saved_data)
+
+func reset_transient():
+	var saved_game: SavedGame = load(save_path)
+	get_tree().call_group("can_save", "reset_transient", saved_game.saved_data)

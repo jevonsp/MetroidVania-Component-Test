@@ -15,3 +15,15 @@ res://level_components/pickup/pickup.gd
 res://resources/saved_data.gd
 res://player/move_comp.gd
 res://player/jump_comp.gd
+res://player/run_comp.gd
+res://player/dash_comp.gd
+res://player/double_jump_comp.gd
+res://player/move_comp.tscn
+res://level_components/kill_plane/kill_plane.gd
+res://level_components/save_point/save_point.gd
+res://level_components/save_point/save_point.tscn
+res://player/input_comp.gd
+res://player/ground_pound/ground_pound_comp.tscn
+res://player/ground_pound/ground_pound_comp.gd
+res://player/input/input_comp.gd
+res://player/double_jump/double_jump_comp.tscn

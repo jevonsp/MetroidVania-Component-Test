@@ -1,5 +1,12 @@
 class_name SavedData extends Resource
 
-@export var position: Vector2
-@export var state: Dictionary = {}
+# Object ID
+@export var object_id: String = ""
+@export var object_type: String = ""
+
+# Player data
+@export var position: Vector2 = Vector2.ZERO
+@export var abilities: Array[String] = []
+
+# Collectables
 @export var pickup_state: bool = false

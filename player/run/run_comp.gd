@@ -1,12 +1,13 @@
 class_name RunComponent extends Node
 
-@export var ability_name: String = "RunComponent"
+@export var ability_name: String = "run"
 @export_subgroup("Settings")
 @export var max_speed: float = 200
 @export var max_run_speed: float = 350
 @export var run_speed_time: float = .5
 @export var ground_accel_speed: float = 6.0
 @export var ground_decel_speed:float = 8.0
+@export var ground_turning_speed: float = 30.0
 @export var air_accel_speed: float = 10.0
 @export var air_decel_speed: float = 3.0
 
@@ -42,8 +43,14 @@ func tick(body: CharacterBody2D, delta: float) -> void:
 	else:
 		velocity_change_speed = air_accel_speed if direction != 0 else air_decel_speed
 		
+	if body.is_on_floor():
+		if sign(body.velocity.x) != sign(input_comp.input_horizontal):
+			print("turning")
+			velocity_change_speed = ground_turning_speed
+		
 	body.velocity.x = move_toward(body.velocity.x, direction * current_speed, velocity_change_speed)
 	if current_speed == max_run_speed:
 		player.running_at_full = true
 	else:
 		player.running_at_full = false
+	print(body.velocity.x)
