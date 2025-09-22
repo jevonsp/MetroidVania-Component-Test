@@ -15,7 +15,6 @@ var input_comp: InputComponent
 
 func _ready() -> void:
 	input_comp = get_parent().get_node("InputComp")
-	print("added to player")
 
 func tick(body: CharacterBody2D, _delta: float) -> void:
 	var velocity_change_speed := 0.0

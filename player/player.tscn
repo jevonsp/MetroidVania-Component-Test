@@ -10,8 +10,9 @@ size = Vector2(17, 16)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjkh3"]
 radius = 9.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gravity_comp", "input_comp")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "gravity_comp", "input_comp") groups=["can_save"]]
 script = ExtResource("1_4flbx")
+camera = NodePath("Camera2D")
 gravity_comp = NodePath("GravityComp")
 input_comp = NodePath("InputComp")
 
@@ -30,3 +31,5 @@ shape = SubResource("RectangleShape2D_yw30f")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_qjkh3")
+
+[node name="Camera2D" type="Camera2D" parent="."]

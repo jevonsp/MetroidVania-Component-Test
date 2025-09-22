@@ -37,7 +37,6 @@ func handle_input(body: CharacterBody2D) -> void:
 	if input_comp.dash_pressed:
 		if body.is_on_floor() or air_dashes_done < max_air_dashes:
 			start_dash(body)
-			print("started dash")
 		
 func start_dash(body: CharacterBody2D) -> void:
 	is_dashing = true

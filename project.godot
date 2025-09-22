@@ -14,9 +14,18 @@ config/name="MetroidVaniaTest"
 run/main_scene="uid://demwov1q6j5gk"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[autoload]
+
+Debug="*res://test/Debug.gd"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[global_group]
+
+can_save=""
+pickup=""
 
 [input]
 

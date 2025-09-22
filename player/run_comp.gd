@@ -1,5 +1,6 @@
 class_name RunComponent extends Node
 
+@export var ability_name: String = "RunComponent"
 @export_subgroup("Settings")
 @export var max_speed: float = 200
 @export var max_run_speed: float = 350

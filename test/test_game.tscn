@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://djtccttk0l6v6"]
+
+[ext_resource type="Script" uid="uid://rvlw7lsv24j6" path="res://test/test_game.gd" id="1_a34fs"]
+[ext_resource type="PackedScene" uid="uid://demwov1q6j5gk" path="res://test/test_world.tscn" id="2_i2238"]
+[ext_resource type="PackedScene" uid="uid://2skkbvilb1g6" path="res://test/main_menu.tscn" id="3_eiu4o"]
+
+[node name="TestGame" type="Node2D" node_paths=PackedStringArray("menu", "world")]
+script = ExtResource("1_a34fs")
+menu = NodePath("MainMenu")
+world = NodePath("TestWorld")
+
+[node name="MainMenu" parent="." instance=ExtResource("3_eiu4o")]
+
+[node name="TestWorld" parent="." instance=ExtResource("2_i2238")]
+
+[connection signal="erase_save_pressed" from="MainMenu" to="." method="_on_main_menu_erase_save_pressed"]
+[connection signal="load_pressed" from="MainMenu" to="." method="_on_main_menu_load_pressed"]

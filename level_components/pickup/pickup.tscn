@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg5tfjve0in7o"]
 
-[ext_resource type="Script" uid="uid://d111c40mwfuyk" path="res://pickup/pickup.gd" id="1_weqpt"]
+[ext_resource type="Script" uid="uid://d111c40mwfuyk" path="res://level_components/pickup/pickup.gd" id="1_weqpt"]
 [ext_resource type="Texture2D" uid="uid://b8vgbft3llvul" path="res://assets/tileset.png" id="2_amdaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_weqpt"]
 size = Vector2(32, 32)
 
-[node name="Pickup" type="Area2D"]
+[node name="Pickup" type="Area2D" groups=["can_save", "pickup"]]
 script = ExtResource("1_weqpt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
