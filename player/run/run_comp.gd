@@ -45,7 +45,6 @@ func tick(body: CharacterBody2D, delta: float) -> void:
 		
 	if body.is_on_floor():
 		if sign(body.velocity.x) != sign(input_comp.input_horizontal):
-			print("turning")
 			velocity_change_speed = ground_turning_speed
 		
 	body.velocity.x = move_toward(body.velocity.x, direction * current_speed, velocity_change_speed)
@@ -53,4 +52,3 @@ func tick(body: CharacterBody2D, delta: float) -> void:
 		player.running_at_full = true
 	else:
 		player.running_at_full = false
-	print(body.velocity.x)

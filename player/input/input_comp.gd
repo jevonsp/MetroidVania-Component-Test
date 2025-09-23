@@ -12,4 +12,3 @@ func _physics_process(_delta: float) -> void:
 	dash_pressed = Input.is_action_pressed("dash")
 	run_pressed = Input.is_action_pressed("run")
 	down_pressed = Input.is_action_pressed("down")
-	print(input_horizontal)

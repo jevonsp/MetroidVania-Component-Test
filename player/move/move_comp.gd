@@ -28,8 +28,6 @@ func tick(body: CharacterBody2D, _delta: float) -> void:
 	
 	if body.is_on_floor():
 		if sign(body.velocity.x) != sign(input_comp.input_horizontal):
-			print("turning")
 			velocity_change_speed = ground_turning_speed
 	
 	body.velocity.x = move_toward(body.velocity.x, direction * speed, velocity_change_speed)
-	print(body.velocity.x)

@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=4 uid="uid://demwov1q6j5gk"]
+[gd_scene load_steps=14 format=4 uid="uid://demwov1q6j5gk"]
 
 [ext_resource type="PackedScene" uid="uid://cruv8x2rdrv6a" path="res://player/player.tscn" id="1_s3n3v"]
 [ext_resource type="Script" uid="uid://cddpiehn61fjx" path="res://test/test_world.gd" id="1_v2t6q"]
 [ext_resource type="PackedScene" uid="uid://da1n2frvibstw" path="res://levels/tile_map_layer.tscn" id="2_kgdm3"]
 [ext_resource type="PackedScene" uid="uid://cg5tfjve0in7o" path="res://level_components/pickup/pickup.tscn" id="3_aeque"]
-[ext_resource type="PackedScene" uid="uid://xu5h8bq2ttnh" path="res://player/move/move_comp.tscn" id="3_myfg3"]
 [ext_resource type="PackedScene" uid="uid://d0r2oj4lhcxgq" path="res://player/jump/jump_comp.tscn" id="4_f6u32"]
 [ext_resource type="PackedScene" uid="uid://bwd3p873abne6" path="res://player/double_jump/double_jump_comp.tscn" id="5_5jhup"]
 [ext_resource type="PackedScene" uid="uid://bvkmptsbvdxwl" path="res://player/dash/dash_comp.tscn" id="6_v2t6q"]
 [ext_resource type="PackedScene" uid="uid://hqjhuuwjm7gd" path="res://player/run/run_comp.tscn" id="7_kgdm3"]
 [ext_resource type="PackedScene" uid="uid://5qjdriciyd3x" path="res://level_components/kill_plane/kill_plane.tscn" id="8_aeque"]
+[ext_resource type="PackedScene" uid="uid://dsy2belud1fen" path="res://player/ground_pound/ground_pound_comp.tscn" id="9_5qlj8"]
 [ext_resource type="PackedScene" uid="uid://bsflbiwg1kyop" path="res://level_components/save_point/save_point.tscn" id="9_f6u32"]
 [ext_resource type="PackedScene" uid="uid://cm5u1m2qssorm" path="res://level_components/save_point/saver_loader.tscn" id="10_5jhup"]
+[ext_resource type="PackedScene" uid="uid://chrje10ow2dlu" path="res://test/enemy.tscn" id="12_myfg3"]
 
 [node name="TestWorld" type="Node2D" node_paths=PackedStringArray("player", "pickups", "savepoints", "saver_loader")]
 script = ExtResource("1_v2t6q")
@@ -24,7 +25,6 @@ saver_loader = NodePath("SaverLoader")
 unique_name_in_owner = true
 z_index = 1
 position = Vector2(143, 584)
-move_comp_scene = ExtResource("3_myfg3")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_kgdm3")]
 tile_map_data = PackedByteArray("AAAAABMAAAABAAEAAAABABMAAAABAAEAAAACABMAAAABAAEAAAADABMAAAABAAEAAAAEABMAAAABAAEAAAAFABMAAAABAAEAAAAGABMAAAABAAEAAAAHABMAAAABAAEAAAAIABMAAAABAAEAAAAJABMAAAABAAEAAAAKABMAAAABAAEAAAALABMAAAABAAEAAAAMABMAAAABAAEAAAANABMAAAABAAEAAAAOABMAAAABAAEAAAAPABMAAAABAAEAAAAQABMAAAABAAEAAAARABMAAAABAAEAAAASABMAAAABAAEAAAATABMAAAABAAEAAAAUABMAAAABAAEAAAAVABMAAAABAAEAAAAWABMAAAABAAEAAAAXABMAAAABAAEAAAAYABMAAAABAAEAAAAZABMAAAABAAEAAAAaABMAAAABAAEAAAAbABMAAAABAAEAAAAcABMAAAABAAEAAAAdABMAAAABAAEAAAAeABMAAAABAAEAAAAfABMAAAABAAEAAAAgABMAAAABAAEAAAAhABMAAAABAAEAAAAiABMAAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAA=")
@@ -54,6 +54,11 @@ priority = 4
 ability_scene = ExtResource("6_v2t6q")
 pickup_id = "dash_tut_level"
 
+[node name="GroundPound" parent="Pickups" instance=ExtResource("3_aeque")]
+position = Vector2(358, 132)
+ability_scene = ExtResource("9_5qlj8")
+pickup_id = "ground_pound_tut_level"
+
 [node name="KillPlane" parent="." instance=ExtResource("8_aeque")]
 position = Vector2(719, 733.00006)
 scale = Vector2(-8.832678, -1.2110078)
@@ -65,3 +70,6 @@ position = Vector2(79, 584)
 
 [node name="SaverLoader" parent="." instance=ExtResource("10_5jhup")]
 unique_name_in_owner = true
+
+[node name="Enemy" parent="." instance=ExtResource("12_myfg3")]
+position = Vector2(208, 593)

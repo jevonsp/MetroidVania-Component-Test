@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://oe5irbkome23"]
+
+[ext_resource type="Shader" uid="uid://dwjhd7imxwlt1" path="res://player/player.gdshader" id="1_abd4i"]
+
+[resource]
+shader = ExtResource("1_abd4i")
+shader_parameter/whiten = false

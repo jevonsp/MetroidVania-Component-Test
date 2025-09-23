@@ -5,6 +5,8 @@ class_name Player extends CharacterBody2D
 @export var gravity_comp: GravityComponent
 @export var input_comp: InputComponent
 
+const invincibility_duration: float = 1.0
+
 var abilities: Array[Node] = []
 var ability_registry: Dictionary = {}
 
@@ -14,14 +16,14 @@ var running_at_full: bool = false
 var can_save: bool = false
 
 @onready var saver_loader = %SaverLoader
+@onready var hurtbox = $Hurtbox
+@onready var blinker = $Blinker
 
 func _ready() -> void:
 	setup_ability_registry()
 	print("Registry setup: ", ability_registry.keys())
 	var move_comp = MoveComponent.new()
 	_add_ability(move_comp)
-	var ground_pound_comp = GroundPoundComponent.new()
-	_add_ability(ground_pound_comp)
 	
 func _physics_process(delta: float) -> void:
 	if can_save:
@@ -47,6 +49,7 @@ func setup_ability_registry():
 	ability_registry["jump"] = preload("res://player/jump/jump_comp.tscn")
 	ability_registry["double_jump"] = preload("res://player/double_jump/double_jump_comp.tscn")
 	ability_registry["dash"] = preload("res://player/dash/dash_comp.tscn")
+	ability_registry["ground_pound"] = preload("res://player/ground_pound/ground_pound_comp.tscn")
 	
 func _add_ability(ability: Node)-> void:
 	if ability and not abilities.has(ability):
@@ -75,6 +78,9 @@ func restore_ability(ability_name: String):
 func save() -> void:
 	print("saving")
 	saver_loader.save_game()
+
+func _die() -> void:
+	_respawn()
 
 func _respawn() -> void:
 	print("die here")
