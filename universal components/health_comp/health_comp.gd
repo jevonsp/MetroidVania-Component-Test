@@ -19,12 +19,12 @@ func _ready() -> void:
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is Hitbox and not hurtbox.is_invincible:
 		var hitbox := area as Hitbox
-		Debug.debug_print("hurtbox hit by: " + hitbox.name)
+		print("Hurtbox entered by:", area.name, "global_pos:", area.global_position, "team:", area.team)
 		blinker._start_blinker(get_parent(), invincibility_duration)
 		hurtbox._start_invincibility(invincibility_duration)
 		hurtbox._flash_white()
 		hitpoints -= hitbox.damage
-		
+		print(hitpoints)
 		if hitpoints <= 0 and get_parent().has_method("_die"):
 			get_parent()._die()
 			reset_hitpoints()

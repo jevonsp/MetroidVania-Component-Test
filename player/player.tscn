@@ -18,11 +18,12 @@ size = Vector2(17, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_boad6"]
 size = Vector2(30, 30)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "gravity_comp", "input_comp") groups=["can_save"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("camera", "gravity_comp", "input_comp", "health_comp") groups=["can_save"]]
 script = ExtResource("1_4flbx")
 camera = NodePath("Camera2D")
 gravity_comp = NodePath("GravityComp")
 input_comp = NodePath("InputComp")
+health_comp = NodePath("HealthComp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = ExtResource("2_g6k8r")
@@ -50,7 +51,6 @@ shape = SubResource("RectangleShape2D_yw30f")
 [node name="Hurtbox" parent="." instance=ExtResource("6_g6k8r")]
 collision_layer = 0
 collision_mask = 2
-whiten_material = ExtResource("2_g6k8r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_boad6")

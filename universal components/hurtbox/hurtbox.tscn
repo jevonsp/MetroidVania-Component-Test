@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cauouyf7iwoc"]
+[gd_scene load_steps=3 format=3 uid="uid://cauouyf7iwoc"]
 
 [ext_resource type="Script" uid="uid://dg67blgnii0qn" path="res://universal components/hurtbox/hurtbox.gd" id="1_5v47d"]
+[ext_resource type="Material" uid="uid://oe5irbkome23" path="res://player/whiten_material.tres" id="2_44le1"]
 
 [node name="Hurtbox" type="Area2D"]
 script = ExtResource("1_5v47d")
+whiten_material = ExtResource("2_44le1")

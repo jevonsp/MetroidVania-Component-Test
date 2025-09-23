@@ -9,3 +9,8 @@ res://hitbox.gd
 res://test/enemy.tscn
 res://player/ground_pound/ground_pound_comp.tscn
 res://player/ground_pound/ground_pound_comp.gd
+res://test/test_world.tscn
+res://level_components/pickup/pickup.gd
+res://player/player.gd
+res://test/enemy.gd
+res://test/test_game.tscn

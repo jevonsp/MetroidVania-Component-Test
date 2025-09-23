@@ -1,18 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://chrje10ow2dlu"]
+[gd_scene load_steps=10 format=3 uid="uid://chrje10ow2dlu"]
 
 [ext_resource type="PackedScene" uid="uid://bjsmoktt04a7f" path="res://universal components/hitbox/hitbox.tscn" id="1_ehw6f"]
+[ext_resource type="Script" uid="uid://dpwua1cdcuhv4" path="res://test/enemy.gd" id="1_isajv"]
+[ext_resource type="Texture2D" uid="uid://b8vgbft3llvul" path="res://assets/tileset.png" id="2_nni1n"]
+[ext_resource type="Script" uid="uid://dg67blgnii0qn" path="res://universal components/hurtbox/hurtbox.gd" id="2_qfxce"]
+[ext_resource type="Script" uid="uid://bqk32px7ijdbi" path="res://universal components/health_comp/health_comp.gd" id="3_q7hjb"]
+[ext_resource type="PackedScene" uid="uid://0lwxb477egt3" path="res://universal components/blinker/blinker.tscn" id="4_r38dw"]
+[ext_resource type="Material" uid="uid://oe5irbkome23" path="res://player/whiten_material.tres" id="4_ydury"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxce"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7hjb"]
+size = Vector2(32, 32)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 0, 0, 1)
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_isajv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_nni1n")
+hframes = 2
+vframes = 2
+frame = 2
 
 [node name="Hitbox" parent="." instance=ExtResource("1_ehw6f")]
 team = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 shape = SubResource("RectangleShape2D_qfxce")
+debug_color = Color(0.996059, 0, 0.20241034, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("2_qfxce")
+team = 1
+whiten_material = ExtResource("4_ydury")
+metadata/_custom_type_script = "uid://dg67blgnii0qn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
+shape = SubResource("RectangleShape2D_q7hjb")
+debug_color = Color(0.35848635, 0.6181664, 0, 0.41960785)
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_q7hjb")
+max_hitpoints = 1
+metadata/_custom_type_script = "uid://bqk32px7ijdbi"
+
+[node name="Blinker" parent="." instance=ExtResource("4_r38dw")]

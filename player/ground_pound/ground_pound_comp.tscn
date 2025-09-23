@@ -2,16 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cl5budgqyiffg" path="res://player/ground_pound/ground_pound_comp.gd" id="1_vde4k"]
 [ext_resource type="PackedScene" uid="uid://bjsmoktt04a7f" path="res://universal components/hitbox/hitbox.tscn" id="2_5e2qe"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyndu"]
-size = Vector2(39, 29.5)
+[ext_resource type="Shape2D" uid="uid://ha4kw200on24" path="res://player/ground_pound/ground_pound_comp.tres" id="2_lyndu"]
 
 [node name="GroundPoundComp" type="Node"]
 script = ExtResource("1_vde4k")
 
 [node name="Hitbox" parent="." instance=ExtResource("2_5e2qe")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 2.75)
-shape = SubResource("RectangleShape2D_lyndu")
-debug_color = Color(1, 0, 0, 0.4392157)
+collision_layer = 1
+shape_resource = ExtResource("2_lyndu")

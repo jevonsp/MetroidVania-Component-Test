@@ -1,14 +1,14 @@
 CollisionShape2D
+Sprite2D
+HealthComponent
+Hurtbox
 Node2D
 Area2D
 Node
 Timer
 Polygon2D
-Sprite2D
 Camera2D
 Button
 VBoxContainer
 ColorRect
 Marker2D
-Line2D
-Pickup

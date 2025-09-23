@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @export var camera: Camera2D
 @export var gravity_comp: GravityComponent
 @export var input_comp: InputComponent
+@export var health_comp: HealthComponent
 
 const invincibility_duration: float = 1.0
 
@@ -112,3 +113,6 @@ func on_load_game(saved_data: Array[SavedData]) -> void:
 				restore_ability(ability_name)
 			print("Player loaded with abilities: ", my_data.abilities)
 			break
+
+func _on_ground_pound_ended() -> void:
+	hurtbox._start_invincibility(1.0)

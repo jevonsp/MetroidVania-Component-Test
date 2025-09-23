@@ -1,9 +1,9 @@
+res://player/ground_pound
 res://universal components/hitbox
 res://universal components/health_comp
 res://universal components/hurtbox
 res://test
 res://player
-res://player/ground_pound
 res://level_components/save_point
 res://level_components/kill_plane
 res://
