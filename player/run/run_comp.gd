@@ -25,7 +25,7 @@ func _ready() -> void:
 	for ability in player.abilities:
 		if ability is MoveComponent:
 			player._remove_ability(ability)
-			
+	
 func tick(body: CharacterBody2D, delta: float) -> void:
 	var velocity_change_speed := 0.0
 	var direction = input_comp.input_horizontal

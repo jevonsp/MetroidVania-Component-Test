@@ -1,41 +1,11 @@
-res://test/main_menu.tscn
-res://test/main_menu.gd
-res://test/test_game.tscn
-res://test/test_game.gd
-res://test/test.tscn
-res://test/test.gd
-res://test/test_world.tscn
-res://test/test_world.gd
-res://player/player.gd
 res://player/player.tscn
-res://level_components/pickup/pickup.tscn
-res://saver_loader.gd
-res://resources/saved_game.gd
-res://level_components/pickup/pickup.gd
-res://resources/saved_data.gd
-res://player/move_comp.gd
-res://player/jump_comp.gd
-res://player/run_comp.gd
-res://player/dash_comp.gd
-res://player/double_jump_comp.gd
-res://player/move_comp.tscn
-res://level_components/kill_plane/kill_plane.gd
-res://level_components/save_point/save_point.gd
-res://level_components/save_point/save_point.tscn
-res://player/input_comp.gd
+res://player/player.gdshader
+res://player/run/run_comp.gd
+res://universal components/hurtbox/hurtbox.tscn
+res://universal components/hurtbox/hurtbox.gd
+res://universal components/health_comp/health_comp.gd
+res://universal components/hitbox/hitbox.tscn
+res://hitbox.gd
+res://test/enemy.tscn
 res://player/ground_pound/ground_pound_comp.tscn
 res://player/ground_pound/ground_pound_comp.gd
-res://player/input/input_comp.gd
-res://player/double_jump/double_jump_comp.tscn
-res://player/player.gdshader
-res://hurtbox.gd
-res://player/move/move_comp.tscn
-res://player/move/move_comp.gd
-res://player/whiten_material.tres
-res://test/enemy.tscn
-res://blinker.gd
-res://universal components/hurtbox/blinker.tscn
-res://universal components/health_comp/health_comp.tscn
-res://blinker.tscn
-res://universal components/health_comp/health_comp.gd
-res://player/run/run_comp.gd

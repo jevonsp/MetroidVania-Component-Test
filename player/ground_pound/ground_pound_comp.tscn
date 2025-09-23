@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsy2belud1fen"]
+[gd_scene load_steps=4 format=3 uid="uid://dsy2belud1fen"]
 
 [ext_resource type="Script" uid="uid://cl5budgqyiffg" path="res://player/ground_pound/ground_pound_comp.gd" id="1_vde4k"]
+[ext_resource type="PackedScene" uid="uid://bjsmoktt04a7f" path="res://universal components/hitbox/hitbox.tscn" id="2_5e2qe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyndu"]
+size = Vector2(39, 29.5)
 
 [node name="GroundPoundComp" type="Node"]
 script = ExtResource("1_vde4k")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_5e2qe")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 2.75)
+shape = SubResource("RectangleShape2D_lyndu")
+debug_color = Color(1, 0, 0, 0.4392157)

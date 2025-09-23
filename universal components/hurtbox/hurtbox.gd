@@ -1,4 +1,4 @@
-extends Area2D
+class_name Hurtbox extends Area2D
 
 const whiten_duration = 0.15
 @export var whiten_material: ShaderMaterial
@@ -14,7 +14,7 @@ func _start_invincibility(invincibilty_duration: float) -> void:
 	collision_shape.set_deferred("disabled", false)
 	is_invincible = false
 
-func _on_area_entered(_area: Area2D) -> void:
+func _flash_white() -> void:
 	whiten_material.set_shader_parameter("whiten", true)
 	await get_tree().create_timer(whiten_duration).timeout
 	whiten_material.set_shader_parameter("whiten", false)
