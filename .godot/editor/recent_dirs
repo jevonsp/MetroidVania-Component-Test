@@ -1,3 +1,9 @@
+res://level_components/enemy/slime
+res://level_components/enemy
+res://level_components/enemy/ai_comp/move
+res://level_components/enemy/ai_comp/chase
+res://level_components/enemy/ai_comp/patrol
+res://universal components/animation_comp
 res://player/ground_pound
 res://universal components/hitbox
 res://universal components/health_comp

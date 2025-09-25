@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xycxmnxemehb"]
+
+[ext_resource type="Script" uid="uid://byy4e5eh8u1ak" path="res://level_components/enemy/ai_comp/move/enemy_move_comp.gd" id="1_0v487"]
+
+[node name="EnemyMoveComp" type="Node"]
+script = ExtResource("1_0v487")

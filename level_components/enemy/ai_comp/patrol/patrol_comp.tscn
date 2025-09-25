@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbtemr8pt4ppp"]
+
+[ext_resource type="Script" uid="uid://dxcwmofp0p5o8" path="res://level_components/enemy/ai_comp/patrol/patrol_comp.gd" id="1_tbj64"]
+
+[node name="PatrolComp" type="Node"]
+script = ExtResource("1_tbj64")

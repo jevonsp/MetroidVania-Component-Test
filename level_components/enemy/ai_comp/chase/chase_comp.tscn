@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2jjwr0ywr8fu"]
+
+[ext_resource type="Script" uid="uid://c7pvpe43k3hv6" path="res://level_components/enemy/ai_comp/chase/chase_comp.gd" id="1_dtu1c"]
+
+[node name="ChaseComp" type="Node"]
+script = ExtResource("1_dtu1c")

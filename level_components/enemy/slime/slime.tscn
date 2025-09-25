@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://b711jdlqa67no"]
+
+[ext_resource type="PackedScene" uid="uid://pb3nd7icly5" path="res://level_components/enemy/enemy.tscn" id="1_wbrij"]
+[ext_resource type="Texture2D" uid="uid://b8vgbft3llvul" path="res://assets/tileset.png" id="2_5m0q1"]
+[ext_resource type="PackedScene" uid="uid://xycxmnxemehb" path="res://level_components/enemy/ai_comp/move/enemy_move_comp.tscn" id="2_chalh"]
+[ext_resource type="PackedScene" uid="uid://bbtemr8pt4ppp" path="res://level_components/enemy/ai_comp/patrol/patrol_comp.tscn" id="3_5m0q1"]
+[ext_resource type="Script" uid="uid://bqmlmbfgjl6cb" path="res://universal components/hitbox/hitbox.gd" id="3_14p2t"]
+[ext_resource type="Shader" uid="uid://dwjhd7imxwlt1" path="res://player/player.gdshader" id="3_a1kkt"]
+[ext_resource type="PackedScene" uid="uid://c2jjwr0ywr8fu" path="res://level_components/enemy/ai_comp/chase/chase_comp.tscn" id="4_a1kkt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14p2t"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pkxk"]
+size = Vector2(34, 25)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14p2t"]
+shader = ExtResource("3_a1kkt")
+shader_parameter/whiten = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1kkt"]
+size = Vector2(30, 2.25)
+
+[node name="Slime" instance=ExtResource("1_wbrij")]
+collision_layer = 2
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_5m0q1")
+hframes = 2
+vframes = 2
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+shape = SubResource("RectangleShape2D_14p2t")
+
+[node name="HealthComp" parent="." index="2"]
+max_hitpoints = 1
+
+[node name="Hitbox" type="Area2D" parent="." index="3"]
+script = ExtResource("3_14p2t")
+team = 1
+metadata/_custom_type_script = "uid://bqmlmbfgjl6cb"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8pkxk")
+
+[node name="Hurtbox" parent="." index="4"]
+whiten_material = SubResource("ShaderMaterial_14p2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_a1kkt")
+debug_color = Color(1, 0, 0, 0.49019608)
+
+[node name="EnemyMoveComp" parent="Abilities" index="0" instance=ExtResource("2_chalh")]
+
+[node name="PatrolComp" parent="AI" index="0" instance=ExtResource("3_5m0q1")]
+
+[node name="ChaseComp" parent="AI" index="1" instance=ExtResource("4_a1kkt")]

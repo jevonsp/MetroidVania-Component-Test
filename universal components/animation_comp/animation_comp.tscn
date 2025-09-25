@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu0x6fym5qjhm"]
+
+[ext_resource type="Script" uid="uid://beavg5o24noup" path="res://universal components/animation_comp/animation_comp.gd" id="1_7dntk"]
+
+[node name="AnimationComp" type="Node" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_7dntk")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -20,6 +20,8 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if area is Hitbox and not hurtbox.is_invincible:
 		var hitbox := area as Hitbox
 		print("Hurtbox entered by:", area.name, "global_pos:", area.global_position, "team:", area.team)
+		if hitbox.team == hurtbox.team:
+			return 
 		blinker._start_blinker(get_parent(), invincibility_duration)
 		hurtbox._start_invincibility(invincibility_duration)
 		hurtbox._flash_white()

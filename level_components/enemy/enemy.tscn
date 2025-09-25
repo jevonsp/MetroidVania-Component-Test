@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://pb3nd7icly5"]
+
+[ext_resource type="Script" uid="uid://xqciaynu7s67" path="res://level_components/enemy/enemy.gd" id="1_qwpqi"]
+[ext_resource type="PackedScene" uid="uid://bglve184swnts" path="res://universal components/health_comp/health_comp.tscn" id="2_mf7ke"]
+[ext_resource type="Script" uid="uid://dg67blgnii0qn" path="res://universal components/hurtbox/hurtbox.gd" id="3_qwpqi"]
+[ext_resource type="PackedScene" uid="uid://cu0x6fym5qjhm" path="res://universal components/animation_comp/animation_comp.tscn" id="4_f3rm3"]
+[ext_resource type="Shader" uid="uid://dwjhd7imxwlt1" path="res://player/player.gdshader" id="4_kvldu"]
+[ext_resource type="PackedScene" uid="uid://0lwxb477egt3" path="res://universal components/blinker/blinker.tscn" id="4_mf7ke"]
+[ext_resource type="PackedScene" uid="uid://c73ankn3gphvt" path="res://player/gravity/gravity_comp.tscn" id="5_hht4v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e63mg"]
+shader = ExtResource("4_kvldu")
+shader_parameter/whiten = false
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("health_comp", "hurtbox", "blinker", "gravity_comp", "animation_comp", "abilities_node", "ai_node")]
+collision_layer = 4
+script = ExtResource("1_qwpqi")
+health_comp = NodePath("HealthComp")
+hurtbox = NodePath("Hurtbox")
+blinker = NodePath("Blinker")
+gravity_comp = NodePath("GravityComp")
+animation_comp = NodePath("AnimationComp")
+abilities_node = NodePath("Abilities")
+ai_node = NodePath("AI")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HealthComp" parent="." instance=ExtResource("2_mf7ke")]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("3_qwpqi")
+team = 1
+whiten_material = SubResource("ShaderMaterial_e63mg")
+metadata/_custom_type_script = "uid://dg67blgnii0qn"
+
+[node name="Blinker" parent="." instance=ExtResource("4_mf7ke")]
+
+[node name="GravityComp" parent="." instance=ExtResource("5_hht4v")]
+
+[node name="AnimationComp" parent="." instance=ExtResource("4_f3rm3")]
+
+[node name="Abilities" type="Node" parent="."]
+
+[node name="AI" type="Node" parent="."]

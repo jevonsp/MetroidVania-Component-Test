@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chrje10ow2dlu"]
+[gd_scene load_steps=11 format=3 uid="uid://chrje10ow2dlu"]
 
 [ext_resource type="PackedScene" uid="uid://bjsmoktt04a7f" path="res://universal components/hitbox/hitbox.tscn" id="1_ehw6f"]
 [ext_resource type="Script" uid="uid://dpwua1cdcuhv4" path="res://test/enemy.gd" id="1_isajv"]
@@ -6,10 +6,14 @@
 [ext_resource type="Script" uid="uid://dg67blgnii0qn" path="res://universal components/hurtbox/hurtbox.gd" id="2_qfxce"]
 [ext_resource type="Script" uid="uid://bqk32px7ijdbi" path="res://universal components/health_comp/health_comp.gd" id="3_q7hjb"]
 [ext_resource type="PackedScene" uid="uid://0lwxb477egt3" path="res://universal components/blinker/blinker.tscn" id="4_r38dw"]
-[ext_resource type="Material" uid="uid://oe5irbkome23" path="res://player/whiten_material.tres" id="4_ydury"]
+[ext_resource type="Shader" uid="uid://dwjhd7imxwlt1" path="res://player/player.gdshader" id="5_nni1n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfxce"]
 size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1m6mo"]
+shader = ExtResource("5_nni1n")
+shader_parameter/whiten = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7hjb"]
 size = Vector2(32, 32)
@@ -36,7 +40,7 @@ debug_color = Color(0.996059, 0, 0.20241034, 0.41960785)
 collision_layer = 0
 script = ExtResource("2_qfxce")
 team = 1
-whiten_material = ExtResource("4_ydury")
+whiten_material = SubResource("ShaderMaterial_1m6mo")
 metadata/_custom_type_script = "uid://dg67blgnii0qn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]

@@ -1,16 +1,31 @@
-res://player/player.tscn
+res://test/test_game.tscn
 res://player/player.gdshader
-res://player/run/run_comp.gd
-res://universal components/hurtbox/hurtbox.tscn
+res://player/ground_pound/ground_pound_comp.gd
+res://universal components/health_comp/health_comp.tscn
 res://universal components/hurtbox/hurtbox.gd
 res://universal components/health_comp/health_comp.gd
-res://universal components/hitbox/hitbox.tscn
-res://hitbox.gd
 res://test/enemy.tscn
-res://player/ground_pound/ground_pound_comp.tscn
-res://player/ground_pound/ground_pound_comp.gd
-res://test/test_world.tscn
-res://level_components/pickup/pickup.gd
+res://player/player.tscn
 res://player/player.gd
-res://test/enemy.gd
-res://test/test_game.tscn
+res://level_components/enemy/enemy.gd
+res://universal components/animation_comp/animation_comp.tscn
+res://universal components/animation_comp/animation_comp.gd
+res://ai_comp.gd
+res://universal components/ai_comp/ai_comp.tscn
+res://universal components/ai_comp/ai_comp.gd
+res://level_components/enemy/enemy.tscn
+res://level_components/enemy/ai_comp/patrol/patrol_comp.tscn
+res://level_components/enemy/ai_comp/chase/chase_comp.tscn
+res://level_components/enemy/ai_comp/chase/chase_comp.gd
+res://level_components/enemy/ai_comp/patrol/patrol_comp.gd
+res://enemy_move_comp.gd
+res://level_components/enemy/ai_comp/move/enemy_move_comp.tscn
+res://level_components/enemy/slime/slime.tscn
+res://level_components/enemy/ai_comp/ai_comp.gd
+res://level_components/enemy/ai_comp/move/enemy_move_comp.gd
+res://test/test_world.tscn
+res://player/gravity/gravity_comp.gd
+res://levels/tile_map_layer.tscn
+res://player/ground_pound/ground_pound_comp.tscn
+res://universal components/hitbox/hitbox.gd
+res://level_components/pickup/pickup.tscn

@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dsy2belud1fen" path="res://player/ground_pound/ground_pound_comp.tscn" id="9_5qlj8"]
 [ext_resource type="PackedScene" uid="uid://bsflbiwg1kyop" path="res://level_components/save_point/save_point.tscn" id="9_f6u32"]
 [ext_resource type="PackedScene" uid="uid://cm5u1m2qssorm" path="res://level_components/save_point/saver_loader.tscn" id="10_5jhup"]
-[ext_resource type="PackedScene" uid="uid://chrje10ow2dlu" path="res://test/enemy.tscn" id="12_myfg3"]
+[ext_resource type="PackedScene" uid="uid://b711jdlqa67no" path="res://level_components/enemy/slime/slime.tscn" id="13_5qlj8"]
 
 [node name="TestWorld" type="Node2D" node_paths=PackedStringArray("player", "pickups", "savepoints", "saver_loader")]
 script = ExtResource("1_v2t6q")
@@ -21,13 +21,13 @@ pickups = NodePath("Pickups")
 savepoints = NodePath("SavePoints")
 saver_loader = NodePath("SaverLoader")
 
-[node name="Player" parent="." instance=ExtResource("1_s3n3v")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_s3n3v")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(143, 584)
+position = Vector2(144, 592)
 
 [node name="TileMapLayer" parent="." instance=ExtResource("2_kgdm3")]
-tile_map_data = PackedByteArray("AAAAABMAAAABAAEAAAABABMAAAABAAEAAAACABMAAAABAAEAAAADABMAAAABAAEAAAAEABMAAAABAAEAAAAFABMAAAABAAEAAAAGABMAAAABAAEAAAAHABMAAAABAAEAAAAIABMAAAABAAEAAAAJABMAAAABAAEAAAAKABMAAAABAAEAAAALABMAAAABAAEAAAAMABMAAAABAAEAAAANABMAAAABAAEAAAAOABMAAAABAAEAAAAPABMAAAABAAEAAAAQABMAAAABAAEAAAARABMAAAABAAEAAAASABMAAAABAAEAAAATABMAAAABAAEAAAAUABMAAAABAAEAAAAVABMAAAABAAEAAAAWABMAAAABAAEAAAAXABMAAAABAAEAAAAYABMAAAABAAEAAAAZABMAAAABAAEAAAAaABMAAAABAAEAAAAbABMAAAABAAEAAAAcABMAAAABAAEAAAAdABMAAAABAAEAAAAeABMAAAABAAEAAAAfABMAAAABAAEAAAAgABMAAAABAAEAAAAhABMAAAABAAEAAAAiABMAAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAAGAAkAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAjABMAAAABAAEAAAAiABMAAAABAAEAAAAhABMAAAABAAEAAAAgABMAAAABAAEAAAAfABMAAAABAAEAAAAeABMAAAABAAEAAAAdABMAAAABAAEAAAAcABMAAAABAAEAAAAbABMAAAABAAEAAAAaABMAAAABAAEAAAAZABMAAAABAAEAAAAYABMAAAABAAEAAAAXABMAAAABAAEAAAAWABMAAAABAAEAAAAVABMAAAABAAEAAAAUABMAAAABAAEAAAATABMAAAABAAEAAAASABMAAAABAAEAAAARABMAAAABAAEAAAAQABMAAAABAAEAAAAPABMAAAABAAEAAAAOABMAAAABAAEAAAANABMAAAABAAEAAAAMABMAAAABAAEAAAALABMAAAABAAEAAAAKABMAAAABAAEAAAAJABMAAAABAAEAAAAIABMAAAABAAEAAAAHABMAAAABAAEAAAAGABMAAAABAAEAAAAFABMAAAABAAEAAAAEABMAAAABAAEAAAADABMAAAABAAEAAAACABMAAAABAAEAAAABABMAAAABAAEAAAAAABMAAAABAAEAAAAHAA8AAAABAAEAAAAIAA8AAAABAAEAAAAJAA8AAAABAAEAAAAKAA8AAAABAAEAAAAIAAkAAAABAAEAAAAHAAkAAAABAAEAAAAGAAkAAAABAAEAAAA=")
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -71,5 +71,5 @@ position = Vector2(79, 584)
 [node name="SaverLoader" parent="." instance=ExtResource("10_5jhup")]
 unique_name_in_owner = true
 
-[node name="Enemy" parent="." instance=ExtResource("12_myfg3")]
-position = Vector2(209, 592)
+[node name="Slime" parent="." instance=ExtResource("13_5qlj8")]
+position = Vector2(495, 593)

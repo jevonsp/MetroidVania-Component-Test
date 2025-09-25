@@ -26,6 +26,7 @@ window/stretch/mode="viewport"
 
 can_save=""
 pickup=""
+player=""
 
 [input]
 
@@ -77,8 +78,9 @@ dash={
 
 [layer_names]
 
-2d_physics/layer_1="Player/World"
-2d_physics/layer_2="Enemy"
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
 
 [rendering]
 

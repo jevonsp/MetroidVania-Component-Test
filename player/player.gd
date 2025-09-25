@@ -114,5 +114,8 @@ func on_load_game(saved_data: Array[SavedData]) -> void:
 			print("Player loaded with abilities: ", my_data.abilities)
 			break
 
+func _on_ground_pound_started() -> void:
+	print("ground_pound started")
+
 func _on_ground_pound_ended() -> void:
-	hurtbox._start_invincibility(1.0)
+	print("ground_pound ended")

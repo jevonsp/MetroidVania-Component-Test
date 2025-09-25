@@ -8,9 +8,9 @@ class_name Hitbox extends Area2D
 
 func _ready() -> void:
 	if team == 0:
-		collision_layer = 1
-	elif team == 1:
 		collision_layer = 2
+	elif team == 1:
+		collision_layer = 3
 	call_deferred("set_shape")
 	
 func set_shape() -> void:
