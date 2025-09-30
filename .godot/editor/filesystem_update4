@@ -29,3 +29,4 @@ res://levels/tile_map_layer.tscn
 res://player/ground_pound/ground_pound_comp.tscn
 res://universal components/hitbox/hitbox.gd
 res://level_components/pickup/pickup.tscn
+res://level_components/enemy/spike_top/spike_top.tscn

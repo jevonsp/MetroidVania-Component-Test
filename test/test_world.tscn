@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dsy2belud1fen" path="res://player/ground_pound/ground_pound_comp.tscn" id="9_5qlj8"]
 [ext_resource type="PackedScene" uid="uid://bsflbiwg1kyop" path="res://level_components/save_point/save_point.tscn" id="9_f6u32"]
 [ext_resource type="PackedScene" uid="uid://cm5u1m2qssorm" path="res://level_components/save_point/saver_loader.tscn" id="10_5jhup"]
-[ext_resource type="PackedScene" uid="uid://b711jdlqa67no" path="res://level_components/enemy/slime/slime.tscn" id="13_5qlj8"]
+[ext_resource type="PackedScene" uid="uid://b711jdlqa67no" path="res://level_components/enemy/spike_top/spike_top.tscn" id="13_5qlj8"]
 
 [node name="TestWorld" type="Node2D" node_paths=PackedStringArray("player", "pickups", "savepoints", "saver_loader")]
 script = ExtResource("1_v2t6q")
@@ -73,3 +73,4 @@ unique_name_in_owner = true
 
 [node name="Slime" parent="." instance=ExtResource("13_5qlj8")]
 position = Vector2(495, 593)
+collision_layer = 1
